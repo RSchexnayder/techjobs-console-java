@@ -131,17 +131,19 @@ public class JobData {
 
         loadData();
 
-        ArrayList<HashMap<String, String>> allJobs = findAll();
+        ArrayList<HashMap<String,String>> allJobs = findAll();
         ArrayList<HashMap<String,String>>jobs=new ArrayList<>();
 
 
         for (HashMap<String, String> allJob : allJobs){
 
             for (Map.Entry<String, String> job : allJob.entrySet()){
+                System.out.println(job.getValue().toLowerCase() + " " + searchString.toLowerCase());
 
-                if (job.getValue().toLowerCase().equals(searchString.toLowerCase())){
+                if (job.getValue().toLowerCase().contains(searchString.toLowerCase())){
 
-                   jobs.add(allJob);
+                    jobs.add(allJob);
+
                 }
             }
         }
